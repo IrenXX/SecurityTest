@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/planner
+    username: postgres
+    password: 8998
+  jpa:
+    show-sql: true
+  hibernate:
+    ddl-auto: validate
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            provider: github
+            client-id: ${GITHUB_CLIENT_ID}
+            client-secret: ${GITHUB_CLIENT_SECRET}
+            scope:
+              - user:email
+              - read:user
+        provider:
+          github:
+            user-name-attribute: login
